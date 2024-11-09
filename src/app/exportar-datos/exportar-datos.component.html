@@ -1,0 +1,61 @@
+<div class="flex flex-column w-full p-3">
+  <div class="flex md:text-xl md:font-bold mb-3">
+      Exportar datos
+  </div>
+  <div
+      class="p-card flex flex-column w-full md:p-5 gap-2 border-round-2xl border-2 border-200 shadow-5">
+      <div class="flex">
+          <p class="font-semibold">¿Qué registro desea exportar?</p>
+      </div>
+      <div class="flex flex-row justify-content-start">
+          <div *ngFor="let registro of registros" class="field-checkbox mr-3">
+              <p-radioButton
+                  [inputId]="registro.nombre"
+                  name="registro"
+                  [value]="registro"
+                  [(ngModel)]="registroAExportarSeleccionado"/>
+              <label [for]="registro.nombre" class="">
+                  {{ registro.nombre }}
+              </label>
+          </div>
+      </div>
+      <div class="flex">
+          <p class="font-semibold">¿A qué formato lo desea exportar?</p>
+      </div>
+      <div class="flex flex-row justify-content-start">
+          <div *ngFor="let formato of formatos" class="field-checkbox mr-5">
+              <p-radioButton
+                  [inputId]="formato.nombre"
+                  name="formato"
+                  [value]="formato"
+                  [(ngModel)]="formatoAExportarSeleccionado"/>
+              <label [for]="formato.nombre" class="">
+                  {{ formato.nombre }}
+              </label>
+          </div>
+      </div>
+      <div class="flex">
+          <p class="font-semibold">¿Qué periodo desea exportar?</p>
+      </div>
+      <div class="flex flex-row justify-content-start">
+          <div *ngFor="let periodo of periodos" class="field-checkbox mr-2">
+              <p-radioButton
+                  [inputId]="periodo.valor"
+                  name="formato"
+                  [value]="periodo"
+                  [(ngModel)]="periodoAExportarSeleccionado"/>
+              <label [for]="periodo.valor" class="">
+                  {{ periodo.nombre }}
+              </label>
+          </div>
+      </div>
+      <div class="flex w-full">
+          <button
+              pButton
+              pRipple
+              label="Exportar"
+              class="font-semibold w-full">
+          </button>
+      </div>
+  </div>
+</div>
